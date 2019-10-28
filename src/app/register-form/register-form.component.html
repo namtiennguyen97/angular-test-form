@@ -14,6 +14,8 @@
     </div>
     Country: <input type="text" class="form-control" formControlName="country">
     <div class="alert alert-danger" role="alert" *ngIf="registerForm.get('country').invalid && registerForm.get('country').touched">You have to input ur country</div>
+    Age: <input type="number" class="form-control" formControlName="age">
+    <div class="alert alert-danger" role="alert" *ngIf="registerForm.get('age').invalid && registerForm.get('age').touched">Age must be above 18!</div>
     <input type="submit" value="submit">
   </form>
 </div>

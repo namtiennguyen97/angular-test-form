@@ -27,7 +27,8 @@ export class RegisterFormComponent implements OnInit {
         password: '',
         confirmPassword: ''
       }, {validator: comparePassword}),
-      country: ['', [Validators.required]]
+      country: ['', [Validators.required]],
+      age: ['', [Validators.min(18)]]
     });
   }
     onSubmit() {
