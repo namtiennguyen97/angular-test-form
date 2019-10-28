@@ -26,10 +26,17 @@ export class RegisterFormComponent implements OnInit {
       pwGroup: this.fb.group({
         password: '',
         confirmPassword: ''
-      }, {validator: comparePassword})
+      }, {validator: comparePassword}),
+      country: ['', [Validators.required]]
     });
   }
     onSubmit() {
     console.log(this.registerForm);
+    }
+    get mail() {
+    return this.registerForm.get('email');
+    }
+    get pass() {
+    return this.registerForm.get('password');
     }
 }
