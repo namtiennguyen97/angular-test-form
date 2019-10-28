@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<h1 style="text-align: center">Register Form</h1>
+<div class="container">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
+    Email: <input formControlName="email" type="email" class="form-control">
+    <div class="alert alert-danger" role="alert" *ngIf="registerForm.invalid && registerForm.touched">
+      Invalid Email and required!
+    </div>
+    <div formGroupName="pwGroup">
+      Password:  <input formControlName="password" type="password" class="form-control">
+      <div class="alert alert-danger" role="alert" *ngIf="registerForm.invalid && registerForm.touched"> Password is required </div>
+      Confirm Password: <input formControlName="confirmPassword" type="password" class="form-control">
+      <div class="alert alert-danger" role="alert" *ngIf="registerForm.hasError('passwordnotmatch',['pwGroup']) && registerForm.get('pwGroup').touched"> Password does not math</div>
+    </div>
+    <input type="submit" value="submit">
+  </form>
+</div>
+<pre>
+  {{registerForm.value | json}}
+</pre>
